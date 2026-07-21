@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Supplier Product Record",
+  "type": "object",
+  "required": [
+    "product_id",
+    "supplier_id",
+    "sku",
+    "title",
+    "authorization_status",
+    "inventory_status",
+    "fulfillment_supported",
+    "return_policy_defined"
+  ],
+  "properties": {
+    "product_id": {
+      "type": "string"
+    },
+    "supplier_id": {
+      "type": "string"
+    },
+    "sku": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "brand": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "category": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "supplier_cost": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "suggested_retail_price": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "inventory_quantity": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "inventory_status": {
+      "enum": [
+        "active",
+        "low",
+        "out_of_stock",
+        "unknown"
+      ]
+    },
+    "authorization_status": {
+      "type": "string"
+    },
+    "fulfillment_supported": {
+      "type": "boolean"
+    },
+    "tracking_supported": {
+      "type": "boolean"
+    },
+    "return_policy_defined": {
+      "type": "boolean"
+    },
+    "platform_restrictions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risk_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

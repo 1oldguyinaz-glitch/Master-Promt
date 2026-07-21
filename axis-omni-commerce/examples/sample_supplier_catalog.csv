@@ -1,0 +1,2 @@
+supplier_id,product_id,sku,title,brand,category,supplier_cost,suggested_retail_price,inventory_quantity,authorization_status,fulfillment_supported,tracking_supported,return_policy_defined
+SUP-001,PROD-001,SKU-001,Example Household Product,Example Brand,Household,10.00,24.99,500,AUTHORIZED,true,true,true

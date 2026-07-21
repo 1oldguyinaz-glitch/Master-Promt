@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Supplier Record",
+  "type": "object",
+  "required": [
+    "supplier_id",
+    "legal_name",
+    "verification_status",
+    "authorization_status",
+    "fulfillment_model",
+    "payment_terms",
+    "performance_status"
+  ],
+  "properties": {
+    "supplier_id": {
+      "type": "string"
+    },
+    "legal_name": {
+      "type": "string"
+    },
+    "website": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "country": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "verification_status": {
+      "enum": [
+        "unverified",
+        "in_review",
+        "verified",
+        "rejected"
+      ]
+    },
+    "authorization_status": {
+      "enum": [
+        "AUTHORIZED",
+        "AUTHORIZED_WITH_CONDITIONS",
+        "AFFILIATE_ONLY",
+        "REQUIRES_DOCUMENTATION",
+        "NOT_AUTHORIZED",
+        "REJECTED"
+      ]
+    },
+    "fulfillment_model": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "payment_terms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "integrations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "performance_status": {
+      "enum": [
+        "PREFERRED",
+        "APPROVED",
+        "PROBATION",
+        "PAUSED",
+        "REJECTED"
+      ]
+    },
+    "risk_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

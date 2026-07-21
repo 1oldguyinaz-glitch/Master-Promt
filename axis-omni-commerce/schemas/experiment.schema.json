@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Commerce Experiment",
+  "type": "object",
+  "required": [
+    "experiment_id",
+    "hypothesis",
+    "independent_variable",
+    "primary_metric",
+    "budget_limit",
+    "success_threshold",
+    "failure_threshold",
+    "stop_loss_threshold",
+    "status"
+  ],
+  "properties": {
+    "experiment_id": {
+      "type": "string"
+    },
+    "hypothesis": {
+      "type": "string"
+    },
+    "independent_variable": {
+      "type": "string"
+    },
+    "primary_metric": {
+      "type": "string"
+    },
+    "secondary_metrics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "budget_limit": {
+      "type": "number",
+      "minimum": 0
+    },
+    "minimum_sample": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "success_threshold": {
+      "type": "string"
+    },
+    "failure_threshold": {
+      "type": "string"
+    },
+    "stop_loss_threshold": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "planned",
+        "approved",
+        "running",
+        "paused",
+        "completed",
+        "rejected"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

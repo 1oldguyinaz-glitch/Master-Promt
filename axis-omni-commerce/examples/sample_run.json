@@ -1,0 +1,37 @@
+{
+  "run_id": "RUN-0001",
+  "supplier_id": "SUP-001",
+  "product_id": "PROD-001",
+  "hypothesis_id": "HYP-001",
+  "source_department": "BEACON",
+  "destination_department": "VERITY",
+  "current_stage": "market_validation_complete",
+  "objective": "Determine whether the example product should proceed to compliance and economics review.",
+  "evidence": [
+    {
+      "type": "placeholder",
+      "note": "Replace with verified current evidence."
+    }
+  ],
+  "assumptions": [
+    "Supplier catalog data is current."
+  ],
+  "unknowns": [
+    "Observed return rate",
+    "Actual shipping cost"
+  ],
+  "calculations": {},
+  "recommendation": "MORE_DATA_REQUIRED",
+  "confidence_score": 25,
+  "risk_flags": [
+    "example_only"
+  ],
+  "approval_required": false,
+  "approval_reason": null,
+  "success_threshold": "Verified positive contribution profit after shipping and returns.",
+  "failure_threshold": "Negative contribution profit in base case.",
+  "stop_loss_threshold": "$0 until policy is configured.",
+  "next_action": "Verify supplier shipping and return costs.",
+  "artifacts": [],
+  "timestamp": "2026-07-21T00:00:00Z"
+}

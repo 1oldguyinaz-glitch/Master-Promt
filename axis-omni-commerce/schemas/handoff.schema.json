@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/handoff.schema.json",
+  "title": "AXIS OMNI Agent Handoff",
+  "type": "object",
+  "required": [
+    "run_id",
+    "source_department",
+    "destination_department",
+    "current_stage",
+    "objective",
+    "evidence",
+    "assumptions",
+    "unknowns",
+    "recommendation",
+    "confidence_score",
+    "risk_flags",
+    "approval_required",
+    "next_action",
+    "timestamp"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "supplier_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "product_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "hypothesis_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_department": {
+      "type": "string"
+    },
+    "destination_department": {
+      "type": "string"
+    },
+    "current_stage": {
+      "type": "string"
+    },
+    "objective": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "calculations": {
+      "type": "object"
+    },
+    "recommendation": {
+      "type": "string"
+    },
+    "confidence_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "risk_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "approval_required": {
+      "type": "boolean"
+    },
+    "approval_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "success_threshold": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "failure_threshold": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "stop_loss_threshold": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "next_action": {
+      "type": "string"
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}

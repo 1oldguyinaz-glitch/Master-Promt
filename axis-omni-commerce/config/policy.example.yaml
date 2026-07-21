@@ -1,0 +1,52 @@
+version: "1.0.0"
+mode: "draft_only"
+
+platforms:
+  allowed:
+    - shopify
+    - tiktok_shop
+    - amazon
+  require_human_publish_approval: true
+
+financial_limits:
+  currency: USD
+  maximum_experiment_spend: 0
+  maximum_inventory_commitment: 0
+  maximum_automatic_refund: 0
+  minimum_contribution_margin_percent: 20
+  minimum_cash_reserve: 0
+
+supplier_rules:
+  require_verified_identity: true
+  require_resale_authorization: true
+  require_defined_returns: true
+  require_tracking_support: true
+  maximum_fulfillment_days: 10
+  allowed_authorization_statuses:
+    - AUTHORIZED
+    - AUTHORIZED_WITH_CONDITIONS
+    - AFFILIATE_ONLY
+
+human_approval_required:
+  - contracts
+  - financial_account_connections
+  - debt_or_personal_guarantees
+  - material_ad_spend
+  - inventory_purchase
+  - health_or_medical_claims
+  - regulated_products
+  - trademark_filings
+  - irreversible_deletion
+  - sensitive_customer_data_sharing
+
+prohibited_categories:
+  - counterfeit_goods
+  - illegal_products
+  - unauthorized_branded_goods
+  - unsupported_medical_claim_products
+
+security:
+  credentials_in_prompts: false
+  least_privilege_required: true
+  log_secret_values: false
+  production_write_access: false

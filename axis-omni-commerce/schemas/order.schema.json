@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Order Routing Record",
+  "type": "object",
+  "required": [
+    "order_id",
+    "platform",
+    "product_id",
+    "supplier_id",
+    "payment_status",
+    "supplier_acceptance_status",
+    "fulfillment_status",
+    "financial_waterfall"
+  ],
+  "properties": {
+    "order_id": {
+      "type": "string"
+    },
+    "platform": {
+      "type": "string"
+    },
+    "product_id": {
+      "type": "string"
+    },
+    "supplier_id": {
+      "type": "string"
+    },
+    "payment_status": {
+      "type": "string"
+    },
+    "supplier_acceptance_status": {
+      "type": "string"
+    },
+    "fulfillment_status": {
+      "type": "string"
+    },
+    "tracking_number": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "financial_waterfall": {
+      "type": "object",
+      "required": [
+        "gross_payment",
+        "platform_fees",
+        "supplier_cost",
+        "shipping_fulfillment",
+        "refund_chargeback_reserve",
+        "tax_reserve",
+        "contribution_profit"
+      ],
+      "properties": {
+        "gross_payment": {
+          "type": "number"
+        },
+        "platform_fees": {
+          "type": "number"
+        },
+        "supplier_cost": {
+          "type": "number"
+        },
+        "shipping_fulfillment": {
+          "type": "number"
+        },
+        "refund_chargeback_reserve": {
+          "type": "number"
+        },
+        "tax_reserve": {
+          "type": "number"
+        },
+        "contribution_profit": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}
