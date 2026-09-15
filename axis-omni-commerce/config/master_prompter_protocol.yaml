@@ -1,9 +1,10 @@
-version: 1.2.0
+version: 1.3.0
 policy_id: master_prompter_global_execution
 status: active
 
 inheritance:
   protocol: ../prompts/MASTER_PROMPTER_OPERATING_PROTOCOL.md
+  runtime_architecture: ../docs/ALWAYS_ON_EXECUTION_ENGINE.md
   applies_to:
     - AXIS_OMNI
     - AXIS
@@ -28,6 +29,34 @@ precedence:
     - agent_local_optimization_rules
     - project_specific_preferences
 
+execution_engine:
+  mode: always_on_event_driven
+  persistent_runtime_required: true
+  repeat_until_finished: true
+  return_to_listen_after_completion: true
+  resume_paused_workflows_on_new_event: true
+  preserve_canonical_state: true
+  require_event_idempotency: true
+  require_execution_receipts: true
+  allow_priority_preemption: true
+  no_busy_looping: true
+  no_unauthorized_actions: true
+  event_sources:
+    - axis_back_office
+    - crm
+    - lead_forms
+    - gmail
+    - sms_twilio
+    - calendar
+    - stripe
+    - website
+    - github
+    - scheduled_jobs
+    - owner_commands
+    - system_health
+    - agent_handoffs
+    - experiment_thresholds
+
 execution_loop:
   - OBJECTIVE
   - BASELINE
@@ -38,6 +67,60 @@ execution_loop:
   - VERIFY
   - LEARN
   - REPEAT_UNTIL_FINISHED
+
+owner_communication:
+  enabled: true
+  default_hub: axis_back_office
+  agent_direct_owner_contact: true
+  owner_email_allowed: true
+  authorized_transport_required: true
+  preferred_channels:
+    - axis_back_office_agent_chat
+    - axis_back_office_notification
+    - owner_email
+  email_triggers:
+    - bottleneck_requires_owner_input
+    - approval_required
+    - high_value_lead
+    - buying_signal
+    - urgent_customer_event
+    - execution_failure_requires_intervention
+    - material_opportunity
+    - payment_event
+    - booking_event
+    - important_objective_completed
+    - time_sensitive_decision
+    - configured_report
+  email_requirements:
+    identify_agent: true
+    include_workflow_or_lead_reference: true
+    state_what_happened: true
+    state_why_it_matters: true
+    ask_exact_action_if_required: true
+    state_deadline_if_relevant: true
+    state_next_action_after_response: true
+  suppress_low_value_noise: true
+
+lead_acceleration:
+  enabled: true
+  canonical_owner: AXIS_OMNI
+  parallel_specialist_processing_when_safe: true
+  stages:
+    - identity_dedupe
+    - enrichment
+    - qualification_scoring
+    - compliance_contactability
+    - offer_angle_selection
+    - message_generation
+    - approval_gate_if_required
+    - send
+    - monitor_reply
+    - classify_reply
+    - route_response
+    - follow_up_booking_payment
+    - verify_outcome
+    - update_crm
+    - repeat_until_terminal_state
 
 bottleneck_routing:
   enabled: true
