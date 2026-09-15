@@ -1,4 +1,4 @@
-version: 1.3.0
+version: 1.4.0
 policy_id: master_prompter_global_execution
 status: active
 
@@ -68,6 +68,47 @@ execution_loop:
   - LEARN
   - REPEAT_UNTIL_FINISHED
 
+agent_to_agent_communication:
+  enabled: true
+  preferred_primary_transport: event_bus
+  email_transport_allowed: true
+  authorized_axis_mailbox_required: true
+  self_addressed_relay_allowed: true
+  preserve_canonical_state_in_back_office: true
+  email_is_transport_not_source_of_truth: true
+  required_handoff_fields:
+    - handoff_id
+    - workflow_id
+    - canonical_entity_id_when_applicable
+    - from_agent
+    - to_agent
+    - purpose
+    - requested_action
+    - priority
+    - evidence_refs
+    - reply_or_result_expected
+    - expires_at_or_ttl_when_relevant
+    - hop_count
+    - idempotency_key
+  routing:
+    parse_internal_subject_tags: true
+    parse_internal_body_headers: true
+    route_by_to_agent: true
+    fallback_to_axis_omni_on_unknown_agent: true
+  safeguards:
+    require_internal_marker: true
+    dedupe_by_handoff_id: true
+    dedupe_by_idempotency_key: true
+    increment_hop_count: true
+    max_hops: 6
+    enforce_ttl: true
+    no_multiple_auto_replies_to_same_internal_message: true
+    never_classify_internal_email_as_lead_reply: true
+    never_expose_secrets_or_credentials: true
+    external_recipients_still_require_policy_checks: true
+    cannot_bypass_verity_or_suppression: true
+    audit_every_internal_relay: true
+
 owner_communication:
   enabled: true
   default_hub: axis_back_office
@@ -105,6 +146,7 @@ lead_acceleration:
   enabled: true
   canonical_owner: AXIS_OMNI
   parallel_specialist_processing_when_safe: true
+  allow_internal_agent_email_handoffs: true
   stages:
     - identity_dedupe
     - enrichment
@@ -129,6 +171,7 @@ bottleneck_routing:
   ask_minimum_questions: true
   resume_execution_after_response: true
   do_not_escalate_when_agent_can_resolve_autonomously: true
+  first_try_agent_to_agent_resolution: true
   routes:
     compliance_risk_evidence_permissions: VERITY
     implementation_integrations_automation_data: AXIS
