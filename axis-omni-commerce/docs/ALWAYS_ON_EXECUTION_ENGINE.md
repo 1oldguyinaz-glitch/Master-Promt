@@ -96,6 +96,83 @@ Each owner email must identify:
 
 Agents should not flood the owner with low-value mail. Routine information stays in the Back Office unless a configured notification rule promotes it to email.
 
+## Agent-to-Agent Email Relay
+
+Registered agents may also communicate with one another through the authorized Axis email account when email is useful as a durable, asynchronous event transport.
+
+This includes a **self-addressed relay pattern**: an agent may send a message from the Axis mailbox back to the Axis mailbox so that the resulting inbound-email event is re-ingested and routed to a different agent for processing.
+
+Example:
+
+```text
+STAN / SALES AGENT
+→ creates structured handoff
+→ sends email to Axis mailbox
+→ Gmail event enters event bus
+→ AXIS OMNI reads routing metadata
+→ routes to VERITY / AXIS / BEACON / another specialist
+→ receiving agent processes work
+→ verifies result
+→ updates canonical state
+→ next handoff or action fires
+```
+
+Email is a **transport**, not the source of truth. Canonical workflow state remains in the Axis Back Office / state store.
+
+Every internal agent-to-agent email should contain a machine-readable handoff envelope with at least:
+
+- `handoff_id`;
+- `workflow_id`;
+- `lead_id`, `customer_id`, or other canonical entity ID when applicable;
+- `from_agent`;
+- `to_agent`;
+- `purpose`;
+- `requested_action`;
+- `priority`;
+- `evidence_refs`;
+- `reply_or_result_expected`;
+- `expires_at` or TTL when time-sensitive;
+- `hop_count`;
+- `idempotency_key`.
+
+Suggested subject convention:
+
+```text
+[AXIS-INTERNAL][TO:VERITY][WF:<workflow_id>][H:<handoff_id>] Validate contactability
+```
+
+Suggested body header:
+
+```text
+AXIS_INTERNAL: true
+FROM_AGENT: STAN
+TO_AGENT: VERITY
+WORKFLOW_ID: ...
+HANDOFF_ID: ...
+IDEMPOTENCY_KEY: ...
+HOP_COUNT: 1
+PRIORITY: high
+```
+
+### Internal Relay Safeguards
+
+Agent-to-agent email must not create uncontrolled loops.
+
+Required safeguards:
+
+- internal messages must be explicitly marked `AXIS_INTERNAL`;
+- receiving agents must deduplicate by `handoff_id` / `idempotency_key`;
+- increment `hop_count` on every relay;
+- enforce a maximum hop count / TTL;
+- do not auto-reply to the same internal message more than once;
+- do not treat internal relay mail as a customer or lead reply;
+- never expose internal prompts, secrets, credentials, private reasoning, or unnecessary sensitive data;
+- external recipients require the normal permission, consent, compliance, and approval checks;
+- internal email cannot bypass VERITY, suppression lists, owner-defined restrictions, or other policy gates;
+- every internal relay must be written to the audit trail and tied to canonical workflow state.
+
+If email is unavailable, the same handoff envelope should be delivered directly over the event bus / queue. Email is therefore a supported coordination path, not a mandatory dependency.
+
 ## Lead Acceleration Pipeline
 
 Lead processing should be event-driven and parallel where safe:
@@ -121,6 +198,8 @@ NEW LEAD
 
 Specialist agents may work concurrently on enrichment, research, offer fit, copy, analytics, or compliance, but AXIS OMNI owns canonical lead state and conflict resolution.
 
+For lead work, agent-to-agent email may be used to hand a lead between specialists without waiting for the owner. Example: enrichment agent → VERITY → STAN / sales → Sentinel / transport → reply classifier → booking agent. Each hop must preserve the canonical lead ID and workflow ID.
+
 ## Bottleneck Escalation
 
 If a workflow cannot continue autonomously:
@@ -129,6 +208,11 @@ If a workflow cannot continue autonomously:
 BOTTLENECK
 → identify owning agent
 → try autonomous resolution within authority
+→ if another agent can resolve it:
+   → create internal handoff event or agent-to-agent email relay
+   → receiving agent processes it
+   → verify result
+   → resume workflow
 → if owner input is actually required:
    → notify in Back Office
    → email owner when urgency / value warrants
@@ -181,7 +265,9 @@ The engine is functioning correctly when:
 - events are ingested without manual prompting;
 - work is routed to the correct agent;
 - permitted actions execute without unnecessary owner involvement;
-- bottlenecks reach the owner through the appropriate channel;
+- agents can hand work to other agents through the event bus or authorized internal email relay;
+- self-addressed Axis relay messages are safely re-ingested and routed without loops;
+- bottlenecks reach the owner through the appropriate channel only when necessary;
 - owner responses automatically resume paused workflows;
 - leads progress through states faster;
 - duplicate actions are prevented;
