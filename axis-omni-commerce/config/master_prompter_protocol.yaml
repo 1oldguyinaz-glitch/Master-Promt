@@ -1,4 +1,4 @@
-version: 1.1.0
+version: 1.2.0
 policy_id: master_prompter_global_execution
 status: active
 
@@ -39,6 +39,33 @@ execution_loop:
   - LEARN
   - REPEAT_UNTIL_FINISHED
 
+bottleneck_routing:
+  enabled: true
+  default_behavior: route_to_responsible_agent_chatbot
+  preserve_context: true
+  ask_minimum_questions: true
+  resume_execution_after_response: true
+  do_not_escalate_when_agent_can_resolve_autonomously: true
+  routes:
+    compliance_risk_evidence_permissions: VERITY
+    implementation_integrations_automation_data: AXIS
+    offer_copy_brand_creative: DIRECTOR
+    analytics_experiments_expected_value_ranking: BEACON
+    cross_function_strategy_authority_priority_conflict: AXIS_OMNI
+    specialist_owned_bottleneck: responsible_registered_specialist
+  agent_chat_requirements:
+    identify_agent_name_and_role: true
+    explain_bottleneck_plainly: true
+    request_only_required_input: true
+    preserve_workflow_context: true
+    return_control_to_execution_loop: true
+  unresolved_blocker_behavior:
+    report_exact_blocker: true
+    report_evidence: true
+    report_completed_work: true
+    report_single_next_action_to_resume: true
+    never_label_blocked_as_finished: true
+
 repeat_until_finished:
   enabled: true
   default_behavior: continue_automatically_within_authority
@@ -64,12 +91,6 @@ repeat_until_finished:
     - access_failure
     - owner_defined_stop
     - owner_pause_cancel_or_change
-  when_blocked:
-    report_exact_blocker: true
-    report_evidence: true
-    report_completed_work: true
-    report_single_next_action_to_resume: true
-    never_label_blocked_as_finished: true
 
 continuous_opportunity_scan: true
 reality_questioning: true
@@ -111,3 +132,4 @@ owner_escalation:
     - sensitive_or_high_downside_action
     - preference_dependent_tradeoff
     - insufficient_evidence_to_rank_options
+  preferred_interface: responsible_agent_chatbot
