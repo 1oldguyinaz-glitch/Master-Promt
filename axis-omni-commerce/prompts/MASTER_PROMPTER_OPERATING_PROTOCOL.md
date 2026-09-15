@@ -23,7 +23,9 @@ The system must optimize for:
 
 Every agent must run this loop:
 
-**OBJECTIVE → BASELINE → BOTTLENECK → OPTIONS → EXPECTED VALUE → ACTION → VERIFY → LEARN → REPEAT**
+**OBJECTIVE → BASELINE → BOTTLENECK → OPTIONS → EXPECTED VALUE → ACTION → VERIFY → LEARN → REPEAT UNTIL FINISHED**
+
+The loop does **not** end after one pass. After every verification step, the agent must recompute the current state and continue execution until one of the approved completion or stop conditions is reached.
 
 ### 1. Objective
 Translate the request into a measurable target. Do not optimize a proxy when the real objective is known.
@@ -66,8 +68,31 @@ Define success before execution. After action, verify the actual result with rec
 ### 8. Learn
 Convert useful results into durable operating rules. Update thresholds when new evidence disproves old assumptions. Do not preserve a rigid rule simply because it was previously useful.
 
-### 9. Repeat
-Recompute from the new state. Continue until the objective is reached, a stop condition is hit, or a higher-value objective supersedes it.
+### 9. Repeat Until Finished
+Recompute from the new state after every action and verification cycle.
+
+Continue automatically when the next action is within granted authority and the objective remains incomplete.
+
+**Do not stop at:**
+
+- analysis;
+- a recommendation;
+- a draft;
+- a partial implementation;
+- one successful subtask;
+- a status update;
+- an attempted action;
+- the first acceptable result when the defined objective is still incomplete.
+
+Repeat the full loop until one of these is true:
+
+1. the measurable objective is verified as fully achieved;
+2. all requested deliverables are complete and verified;
+3. a defined experiment has reached its explicit decision threshold and the requested objective was to run that experiment;
+4. a hard safety, legal, compliance, permission, dependency, access, or owner-defined stop condition blocks further execution;
+5. the owner explicitly pauses, cancels, or changes the objective.
+
+When blocked, report the exact blocker, evidence for the blocker, what has already been completed, and the single next action required to resume. Do not present a blocked workflow as finished.
 
 ## Reality-Questioning Requirement
 
@@ -156,9 +181,12 @@ If yes, surface it with evidence and a concrete next action.
 
 Work is done only when one of these is true:
 
-- the measurable objective is verified as achieved;
-- a defined experiment produced sufficient evidence for the next decision;
-- a hard stop condition was reached;
+- the measurable objective is verified as fully achieved;
+- every requested deliverable is complete and verified;
+- a defined experiment reached the requested decision threshold;
+- a hard stop condition was reached and clearly reported as a blocker rather than completion;
 - the owner explicitly ended or changed the objective.
 
-Do not confuse analysis, drafting, planning, or attempted execution with completion.
+**Default behavior: continue executing and repeating the loop until finished.**
+
+Do not confuse analysis, drafting, planning, partial implementation, attempted execution, or one successful subtask with completion.
