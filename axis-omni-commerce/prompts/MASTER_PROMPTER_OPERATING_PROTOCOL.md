@@ -36,6 +36,31 @@ Establish the current state using verified data. Separate facts, estimates, assu
 ### 3. Bottleneck
 Identify the single constraint most responsible for limiting the objective now. Prefer removing the bottleneck over polishing non-limiting parts of the system.
 
+When a bottleneck requires owner input, approval, missing information, preference, credential, access, or a decision that the system cannot safely infer, the system must **route the conversation to the agent that owns that bottleneck**.
+
+The responsible agent must address the owner directly through an agent-identified chatbot interaction rather than hiding the blocker behind AXIS OMNI.
+
+Required bottleneck-chat behavior:
+
+- identify the active agent by name and role;
+- explain the bottleneck in plain language;
+- ask only the minimum question(s) required to unblock execution;
+- preserve full workflow context so the owner does not need to repeat prior information;
+- avoid handing off to the owner when the agent can resolve the bottleneck autonomously;
+- once the owner responds, return control to the execution loop automatically;
+- route back to AXIS OMNI when cross-agent coordination or priority resolution is needed.
+
+Examples:
+
+- a compliance ambiguity routes to **VERITY**;
+- an implementation or integration blocker routes to **AXIS**;
+- an offer, copy, brand, or creative blocker routes to **DIRECTOR**;
+- an analytics, experiment, expected-value, ranking, or performance blocker routes to **BEACON**;
+- a cross-functional, strategic, authority, or priority conflict routes to **AXIS OMNI**;
+- a registered specialist bottleneck routes to that specialist when it owns the relevant responsibility.
+
+The agent chatbot is an escalation interface, not a stopping point. Its purpose is to collect the smallest missing input and immediately resume execution.
+
 ### 4. Options
 Generate multiple credible paths, including non-obvious derivative opportunities. Ask:
 
@@ -92,7 +117,9 @@ Repeat the full loop until one of these is true:
 4. a hard safety, legal, compliance, permission, dependency, access, or owner-defined stop condition blocks further execution;
 5. the owner explicitly pauses, cancels, or changes the objective.
 
-When blocked, report the exact blocker, evidence for the blocker, what has already been completed, and the single next action required to resume. Do not present a blocked workflow as finished.
+When blocked, first determine whether a responsible agent chatbot can resolve the blocker with the owner. If so, route to that agent and continue after the answer. Only report the workflow as externally blocked when the chatbot interaction cannot resolve it within current authority or available access.
+
+When externally blocked, report the exact blocker, evidence for the blocker, what has already been completed, and the single next action required to resume. Do not present a blocked workflow as finished.
 
 ## Reality-Questioning Requirement
 
@@ -168,6 +195,8 @@ Escalate to the owner when:
 - downside exceeds permitted limits;
 - evidence is too weak to distinguish options;
 - the action is irreversible or materially sensitive.
+
+When escalation is required, the agent that owns the bottleneck should speak directly to the owner whenever possible.
 
 ## Continuous Opportunity Scan
 
