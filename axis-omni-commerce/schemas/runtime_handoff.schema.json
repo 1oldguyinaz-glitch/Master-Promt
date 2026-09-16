@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AXIS OMNI Runtime Handoff Envelope",
+  "type": "object",
+  "required": ["handoff_id", "workflow_id", "from_agent", "to_agent", "purpose", "requested_action", "priority", "evidence_refs", "reply_or_result_expected", "hop_count", "idempotency_key"],
+  "properties": {
+    "handoff_id": {"type": "string", "minLength": 1},
+    "workflow_id": {"type": "string", "minLength": 1},
+    "canonical_entity_id": {"type": ["string", "null"]},
+    "from_agent": {"type": "string", "minLength": 1},
+    "to_agent": {"type": "string", "minLength": 1},
+    "purpose": {"type": "string", "minLength": 1},
+    "requested_action": {"type": "string", "minLength": 1},
+    "priority": {"type": "string", "enum": ["low", "normal", "high", "urgent"]},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "reply_or_result_expected": {"type": "boolean"},
+    "expires_at": {"type": ["string", "null"], "format": "date-time"},
+    "hop_count": {"type": "integer", "minimum": 0, "maximum": 6},
+    "idempotency_key": {"type": "string", "minLength": 1},
+    "axis_internal": {"type": "boolean", "const": true}
+  },
+  "additionalProperties": false
+}
