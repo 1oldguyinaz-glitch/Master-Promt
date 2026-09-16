@@ -1,0 +1,23 @@
+name: AXIS Runtime Tests
+
+on:
+  push:
+    paths:
+      - 'axis-omni-commerce/src/**'
+      - 'axis-omni-commerce/tests/**'
+      - '.github/workflows/axis-runtime-tests.yml'
+  pull_request:
+    paths:
+      - 'axis-omni-commerce/src/**'
+      - 'axis-omni-commerce/tests/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run AXIS runtime tests
+        run: python -m unittest discover -s axis-omni-commerce/tests -p 'test_*.py' -v
