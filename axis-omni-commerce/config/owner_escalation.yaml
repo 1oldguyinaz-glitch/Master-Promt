@@ -1,0 +1,36 @@
+version: 1.0.0
+owner_escalation:
+  enabled: true
+  destination: bdennis36@outlook.com
+  transport: connected_gmail
+  sender_account: axis_connected_gmail
+  rule: unresolved_question_only
+  first_try_internal_resolution: true
+  triggers:
+    - missing_required_information
+    - owner_decision_required
+    - authorization_required
+    - ambiguous_instruction_blocks_execution
+    - external_action_requires_owner_input
+    - repeated_agent_failure
+  do_not_escalate:
+    - questions_answerable_from_canonical_back_office_state
+    - questions_answerable_by_another_axis_agent
+    - duplicate_question_already_awaiting_owner
+  email:
+    subject_prefix: "[AXIS OWNER INPUT]"
+    include:
+      - workflow_id
+      - handoff_id
+      - asking_agent
+      - exact_question
+      - why_blocked
+      - attempted_resolutions
+      - recommended_options
+      - reply_instruction
+  continuation:
+    on_owner_reply: resume_blocked_workflow
+    preserve_workflow_id: true
+    preserve_handoff_chain: true
+    increment_hop_count: true
+    audit_to_back_office: true
