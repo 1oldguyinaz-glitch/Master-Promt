@@ -1,0 +1,26 @@
+name: AXIS OMNI CI
+
+on:
+  push:
+    paths:
+      - 'axis-omni-commerce/**'
+      - '.github/workflows/axis-omni-ci.yml'
+  pull_request:
+    paths:
+      - 'axis-omni-commerce/**'
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: axis-omni-commerce
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate JSON examples and schemas
+        run: python src/validate_json.py examples/sample_run.json schemas/experiment.schema.json schemas/handoff.schema.json schemas/order.schema.json schemas/product.schema.json schemas/supplier.schema.json data/beacon_seed_signals_v1.json config/first_supplier_search_v1.json
+      - name: Run runtime smoke tests
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
