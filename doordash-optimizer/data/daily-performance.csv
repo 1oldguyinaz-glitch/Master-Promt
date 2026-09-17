@@ -1,0 +1,4 @@
+date,gross_total,doordash_app_gross,cash_tips,active_minutes,dash_minutes,deliveries,accepted_offers,start_odometer,end_odometer,total_vehicle_miles,gross_per_active_hour,gross_per_dash_hour,gross_per_vehicle_mile,benchmark
+2026-09-13,172.97,172.97,0.00,327,371,13,9,,,,31.74,27.97,,true
+2026-09-14,153.97,133.97,20.00,341,447,13,,82285,82399,114,27.09,20.67,1.35,false
+2026-09-15,167.17,167.17,0.00,404,544,18,13,,,120,24.83,18.44,1.39,false
