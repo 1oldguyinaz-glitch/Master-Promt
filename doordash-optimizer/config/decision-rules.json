@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "benchmark_date": "2026-09-13",
+  "primary_metric": "gross_per_dash_hour",
+  "benchmark": {
+    "gross": 172.97,
+    "dash_minutes": 371,
+    "active_minutes": 327,
+    "deliveries": 13,
+    "accepted_offers": 9,
+    "gross_per_dash_hour": 27.97,
+    "gross_per_active_hour": 31.74
+  },
+  "decision_priority": [
+    "expected_gross_per_hour",
+    "expected_completion_time",
+    "displayed_payout",
+    "destination_zone_quality",
+    "gross_per_shown_mile",
+    "item_count_and_wait_risk"
+  ],
+  "heuristics": {
+    "preferred_expected_hourly_min": 28.0,
+    "usually_decline_expected_hourly_max": 24.0,
+    "short_restaurant_reference_payout": 7.5,
+    "stack_reference_payout": 11.0,
+    "grocery_retail_reference_payout_min": 8.5,
+    "grocery_retail_reference_payout_max": 9.0
+  },
+  "protocol": {
+    "response_first": "YES — ACCEPT or NO — DECLINE",
+    "explanation_only_when_requested_or_borderline": true,
+    "fuel_range_is_acceptance_variable": false,
+    "displayed_payout_treated_as_final": true,
+    "do_not_assume_offer_algorithm_training": true
+  }
+}
