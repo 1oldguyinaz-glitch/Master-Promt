@@ -1,0 +1,61 @@
+{
+  "version": "1.0.0",
+  "source": "prior TikTok and web-trend analysis",
+  "purpose": "Seed BEACON with prior product-selection signal before fresh supplier catalog scoring.",
+  "signals": {
+    "preferred_product_attributes": [
+      "visually demonstrable in 15-20 seconds",
+      "clear problem-to-solution transformation",
+      "automotive or driver convenience",
+      "cleaning or utility",
+      "organization or storage",
+      "practical everyday use",
+      "low sizing complexity",
+      "low claim burden",
+      "low expected return risk"
+    ],
+    "historical_product_hypotheses": [
+      {
+        "name": "car seat-gap organizer/filler",
+        "category": "automotive accessory",
+        "signal_strength": "high",
+        "reason": "clear utility, simple demo, driver relevance"
+      },
+      {
+        "name": "cordless pressure-washer type product",
+        "category": "cleaning utility",
+        "signal_strength": "control",
+        "reason": "strong before/after visual demonstration"
+      }
+    ],
+    "creative_patterns": [
+      "problem -> frustration -> use/install -> visible transformation -> CTA",
+      "show outcome quickly rather than explaining at length"
+    ],
+    "audience_prior": {
+      "male_share_percent": 79,
+      "female_share_percent": 21,
+      "largest_age_band": "35-44",
+      "largest_age_band_share_percent": 50,
+      "other_observed_age_shares_percent": {
+        "45-54": 17,
+        "25-34": 16,
+        "18-24": 8,
+        "55+": 9
+      },
+      "note": "Use only as a prior weighting signal. Do not treat historical audience composition as proof of current product demand."
+    },
+    "initial_supplier_catalog_focus": [
+      "automotive accessories",
+      "driver convenience",
+      "cleaning utility",
+      "organization products"
+    ]
+  },
+  "decision_rule": "Historical signals adjust ranking priors only. Every candidate still requires current authorization, inventory, demand, margin, fulfillment, return-risk, and platform validation.",
+  "prohibited_use": [
+    "do not declare winners from historical signal alone",
+    "do not infer causation from prior engagement",
+    "do not suppress newer contradictory evidence"
+  ]
+}
