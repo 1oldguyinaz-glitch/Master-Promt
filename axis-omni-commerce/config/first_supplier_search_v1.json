@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "objective": "Find authorized suppliers already selling finished products that can support a low-upfront-capital Shopify-first distribution test.",
+  "priority_categories": [
+    "automotive accessories",
+    "driver convenience",
+    "vehicle organization",
+    "cleaning utility",
+    "home organization"
+  ],
+  "required_supplier_capabilities": [
+    "finished inventory",
+    "reseller or affiliate authorization",
+    "defined returns",
+    "tracking support",
+    "direct or partner fulfillment",
+    "structured product data"
+  ],
+  "preferred_capabilities": [
+    "Shopify integration",
+    "catalog feed or API",
+    "inventory synchronization",
+    "per-order fulfillment",
+    "low or zero minimum order quantity",
+    "US fulfillment inventory",
+    "automated tracking synchronization"
+  ],
+  "product_filters": {
+    "fast_visual_demo_seconds_max": 20,
+    "avoid_sizing_complexity": true,
+    "avoid_regulated_claims": true,
+    "prefer_low_return_risk": true,
+    "prefer_problem_solution_creative": true,
+    "minimum_contribution_margin_percent": 20
+  },
+  "launch_policy": {
+    "platform": "shopify",
+    "first_listing_status": "DRAFT",
+    "live_publish_requires_human_approval": true,
+    "inventory_purchase_budget": 0,
+    "ad_spend_budget": 0
+  }
+}
