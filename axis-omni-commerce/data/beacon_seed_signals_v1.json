@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "status": "historical_prior_only",
+  "rule": "Historical signals may increase search priority but never bypass fresh demand, authorization, margin, fulfillment, or return-risk validation.",
+  "signals": [
+    {
+      "signal_id": "tiktok-auto-driver-utility",
+      "source": "prior_tiktok_web_analysis",
+      "category": "automotive_driver_convenience",
+      "weight": 0.85,
+      "evidence": ["car accessory concepts repeatedly selected for testing", "car seat gap organizer/filler previously selected as a first-product hypothesis"]
+    },
+    {
+      "signal_id": "visual-problem-solution",
+      "source": "prior_tiktok_web_analysis",
+      "category": "creative_mechanic",
+      "weight": 0.90,
+      "evidence": ["preference for products whose problem and solution can be demonstrated quickly", "before/after and visible transformation formats prioritized"]
+    },
+    {
+      "signal_id": "cleaning-utility",
+      "source": "prior_tiktok_web_analysis",
+      "category": "cleaning_utility",
+      "weight": 0.75,
+      "evidence": ["cleaning and utility products identified as strong demonstration candidates"]
+    },
+    {
+      "signal_id": "organization-storage",
+      "source": "prior_tiktok_web_analysis",
+      "category": "organization_storage",
+      "weight": 0.72,
+      "evidence": ["practical organization products align with fast problem-solution creative"]
+    },
+    {
+      "signal_id": "low-friction-product",
+      "source": "system_strategy",
+      "category": "risk_filter",
+      "weight": 0.95,
+      "evidence": ["prefer low sizing complexity", "prefer low claim burden", "prefer low expected return risk"]
+    }
+  ]
+}
