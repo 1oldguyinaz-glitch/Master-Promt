@@ -1,0 +1,57 @@
+{
+  "version": "3.0.0",
+  "system": "AXIS Multi-Agent Runtime",
+  "authority_model": {
+    "owner": "Bradley",
+    "final_orchestrator": "AXIS OMNI",
+    "validation_veto": "VERITY",
+    "mandatory_execution_chain": ["AXIS", "VERITY", "BEACON", "AXIS OMNI"],
+    "creative_chain": ["AXIS", "VERITY", "DIRECTOR", "VERITY", "AXIS", "BEACON", "AXIS OMNI"]
+  },
+  "primary_roles": [
+    {"id":"P0","name":"AXIS OMNI","function":"orchestration, routing, state, approvals, stop conditions, final decision"},
+    {"id":"P1","name":"AXIS","function":"execution, implementation, integrations, deployment, rollback"},
+    {"id":"P2","name":"VERITY","function":"validation, compliance, evidence checks, veto"},
+    {"id":"P3","name":"DIRECTOR","function":"creative strategy, offer, messaging, content direction"},
+    {"id":"P4","name":"BEACON","function":"analytics, experiments, scorecards, outcome measurement, next move"}
+  ],
+  "specialists": [
+    {"id":"A00","name":"Orchestrator"},
+    {"id":"A01","name":"Catalog Selector"},
+    {"id":"A02","name":"Market Validation"},
+    {"id":"A03","name":"Platform Router"},
+    {"id":"A04","name":"Compliance Gate"},
+    {"id":"A05","name":"Unit Economics"},
+    {"id":"A06","name":"Offer Architect"},
+    {"id":"A07","name":"Listing + Creative"},
+    {"id":"A08","name":"API Deployment"},
+    {"id":"A09","name":"Growth Experiments"},
+    {"id":"A10","name":"Commerce Ops"},
+    {"id":"A11","name":"Analytics"},
+    {"id":"A12","name":"Capital + Next Loop"},
+    {"id":"A13","name":"Supplier Integration"}
+  ],
+  "operating_personas": {
+    "Mira": "human-facing operator and dispatcher; converts owner intent into routed work and surfaces bottlenecks",
+    "Sentinel": "communications monitor and routing layer for inbox, lead replies, follow-ups, suppression and escalation",
+    "Stan": "consultative sales and qualification layer; handles discovery, objections, CTA and booking handoff",
+    "Audit Agent": "diagnostic layer for websites, funnels, offers and business-system gaps"
+  },
+  "run_contract": {
+    "required_report_fields": ["objective", "status_or_bottleneck", "evidence_or_output", "confidence", "next_action", "dependencies"],
+    "evidence_states": ["verified", "inferred", "assumption", "unknown"],
+    "permission_states": ["AUTO", "REVIEW", "HUMAN_ONLY"],
+    "default_external_side_effect_permission": "REVIEW",
+    "irreversible_or_high_risk_permission": "HUMAN_ONLY"
+  },
+  "learning_loop": ["event", "action", "outcome", "metric", "learning", "confidence", "versioned_change"],
+  "execution_rules": [
+    "Route every task through AXIS OMNI before specialist execution.",
+    "Do not present assumptions as evidence.",
+    "VERITY may block deployment when evidence, compliance, consent, economics, or safety fail.",
+    "BEACON must attach measurable success criteria to growth and funnel actions.",
+    "Every external action must produce an audit receipt containing actor, target, action, timestamp, result, and evidence state.",
+    "Failed actions enter retry or dead-letter handling rather than silently disappearing.",
+    "Owner can interrupt, override, pause, or kill any run at any time."
+  ]
+}
