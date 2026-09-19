@@ -1,4 +1,4 @@
-version: 1.4.0
+version: 1.5.0
 policy_id: master_prompter_global_execution
 status: active
 
@@ -245,6 +245,45 @@ measurement:
   distinguish_fact_estimate_assumption_unknown: true
   prohibit_fabricated_metrics: true
   attempted_action_is_not_completion: true
+
+verity_constraint_audit:
+  enabled: true
+  owner: VERITY
+  apply_to_material_workflows: true
+  checks:
+    - flow_conservation
+    - leakage_rate
+    - bottleneck_throughput
+    - end_to_end_latency
+    - work_in_process_pressure
+    - economic_efficiency
+    - automation_leverage
+    - signal_to_noise
+    - feedback_stability
+  equations:
+    flow_conservation: "INPUT = VERIFIED_OUTPUT + QUEUE_CHANGE + LOSS"
+    leakage_rate: "LEAKAGE_RATE = LOSS / INPUT"
+    bottleneck_throughput: "MAX_STABLE_THROUGHPUT <= min(stage_capacities)"
+    total_latency: "TOTAL_LATENCY = sum(stage_processing_time + stage_wait_time)"
+    little_law_check: "WIP ~= THROUGHPUT * CYCLE_TIME"
+    value_efficiency: "VALUE_EFFICIENCY = VERIFIED_INCREMENTAL_VALUE / TOTAL_INCREMENTAL_COST"
+    automation_leverage: "AUTOMATION_LEVERAGE = MANUAL_TIME_REMOVED / AUTOMATION_MAINTENANCE_TIME"
+    net_time_gain: "NET_TIME_GAIN = MANUAL_TIME_REMOVED - MAINTENANCE_TIME - EXCEPTION_HANDLING_TIME"
+    signal_ratio: "SIGNAL_RATIO = ACTIONABLE_VALID_EVENTS / TOTAL_EVENTS"
+    response_gain: "RESPONSE_GAIN = DELTA_OUTPUT / DELTA_INPUT"
+  requirements:
+    classify_inputs_as_fact_estimate_assumption_unknown: true
+    identify_primary_constraint_before_scaling: true
+    reject_unreconciled_metrics: true
+    do_not_treat_more_activity_as_more_value: true
+    do_not_claim_autonomy_when_labor_is_shifted_to_exceptions: true
+    add_damping_or_rate_limits_to_unstable_feedback_loops: true
+  never_overrides:
+    - law
+    - safety
+    - explicit_owner_permissions
+    - platform_policy
+    - compliance_veto
 
 dynamic_thresholds:
   enabled: true
