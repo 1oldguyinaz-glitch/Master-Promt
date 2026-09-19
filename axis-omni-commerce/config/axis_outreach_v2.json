@@ -1,0 +1,140 @@
+{
+  "version": "2.0",
+  "effective_date": "2026-09-19",
+  "sender": {
+    "display_name": "Bradley",
+    "signature_lines": [
+      "— Bradley",
+      "Axis"
+    ],
+    "booking_minutes": 15,
+    "booking_url": "https://cal.com/bradley-dennis-ddfihy/15min?overlayCalendar=true",
+    "internal_agents_never_present_as_sender": true
+  },
+  "production": {
+    "daily_qualified_unique_lead_ceiling": 2500,
+    "geography": "Washington",
+    "source_requirements": [
+      "verified active business",
+      "verified public business email",
+      "specific observed conversion weakness",
+      "evidence URL"
+    ],
+    "suppress": [
+      "duplicate",
+      "prior contact",
+      "hard bounce",
+      "opt-out",
+      "closed business",
+      "franchise with centrally controlled site",
+      "strong modern funnel without a clear Axis opportunity"
+    ],
+    "note": "Qualified leads, attempted sends, delivered emails, replies, bookings, and revenue are separate metrics."
+  },
+  "niches": [
+    {
+      "name": "Auto detailing",
+      "priority": 2,
+      "angle": "mobile quote or booking path"
+    },
+    {
+      "name": "Junk removal and dumpster rental",
+      "priority": 1,
+      "angle": "instant quote and missed-call recovery"
+    },
+    {
+      "name": "Pressure washing",
+      "priority": 2,
+      "angle": "photo estimate and follow-up"
+    },
+    {
+      "name": "Tree service",
+      "priority": 1,
+      "angle": "urgent estimate and call capture"
+    },
+    {
+      "name": "Garage door service",
+      "priority": 1,
+      "angle": "urgent booking and missed-call recovery"
+    },
+    {
+      "name": "Plumbing and drain/sewer",
+      "priority": 1,
+      "angle": "urgent booking and missed-call SMS"
+    },
+    {
+      "name": "Electrical",
+      "priority": 1,
+      "angle": "estimate and appointment automation"
+    },
+    {
+      "name": "HVAC and heat pumps",
+      "priority": 1,
+      "angle": "24/7 lead capture and follow-up"
+    },
+    {
+      "name": "Roofing",
+      "priority": 1,
+      "angle": "estimate funnel and nurture"
+    },
+    {
+      "name": "Pest control",
+      "priority": 1,
+      "angle": "instant booking and recurring follow-up"
+    },
+    {
+      "name": "Water, fire, and mold restoration",
+      "priority": 1,
+      "angle": "immediate response and dispatch"
+    },
+    {
+      "name": "Appliance repair",
+      "priority": 2,
+      "angle": "automated scheduling"
+    },
+    {
+      "name": "Fencing",
+      "priority": 2,
+      "angle": "photo and estimate intake"
+    },
+    {
+      "name": "Concrete and paving",
+      "priority": 2,
+      "angle": "project qualification and estimate follow-up"
+    },
+    {
+      "name": "Painting",
+      "priority": 2,
+      "angle": "quote capture and follow-up"
+    }
+  ],
+  "experiment": {
+    "arms": [
+      "STAN",
+      "CUSTOMER_SERVICE",
+      "BRIDGE"
+    ],
+    "assignment": "deterministic sticky hash of verified lead identity",
+    "allocation": "approximately equal",
+    "primary_metric": "qualified replies per delivered email",
+    "secondary_metrics": [
+      "bookings per delivered email",
+      "revenue per delivered email",
+      "opt-outs per delivered email",
+      "bounce rate"
+    ],
+    "no_winner_rule": "Do not declare a winner from opens alone or from a small cohort with zero verified replies."
+  },
+  "copy_rules": {
+    "authority": "One specific observation plus one decisive first fix.",
+    "likability": "Bradley speaks personally, shows respect for the business, and asks one genuine diagnostic question.",
+    "questions_max": 2,
+    "prohibited": [
+      "fabricated defects",
+      "guaranteed leads",
+      "guaranteed revenue",
+      "fake urgency",
+      "agent persona as sender"
+    ]
+  }
+}
