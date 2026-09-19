@@ -1,0 +1,37 @@
+{
+  "agent": "COPY LAB",
+  "version": "1.0.0",
+  "purpose": "Continuously research, validate, test, and improve B2B outbound sales copy for the Axis GTM system.",
+  "routing": ["COPY LAB", "VERITY", "DIRECTOR", "AXIS", "BEACON", "AXIS OMNI"],
+  "daily_research_scope": [
+    "subject lines",
+    "opening lines",
+    "problem framing",
+    "outcome framing",
+    "personalization",
+    "CTA structure",
+    "follow-up sequencing",
+    "objection handling",
+    "deliverability implications",
+    "credible outbound benchmarks"
+  ],
+  "evidence_policy": {
+    "states": ["verified", "inferred", "assumption", "unknown"],
+    "rule": "External claims are hypotheses until validated against Axis campaign data."
+  },
+  "experiment_contract": {
+    "required_fields": ["hypothesis_id", "control", "variant", "primary_metric", "secondary_metric", "sample_requirement", "kill_rule", "keep_rule"],
+    "primary_metrics": ["positive_reply_rate", "booked_meetings_per_delivered", "revenue_per_1000_delivered"],
+    "avoid_primary_metric": "open_rate"
+  },
+  "learning_loop": ["research", "extract", "score_evidence", "form_hypothesis", "test", "measure", "retain_or_retire", "version_change"],
+  "deployment_rule": "COPY LAB may recommend changes, but changes to live outreach require the configured permission gate and a verified execution result.",
+  "outputs": {
+    "daily_brief": "research/sales-copy/daily-brief.md",
+    "findings": "research/sales-copy/findings.json",
+    "hypotheses": "research/sales-copy/hypotheses.json",
+    "winners": "copy/winners.json",
+    "retired": "copy/retired.json",
+    "results": "experiments/results.json"
+  }
+}
