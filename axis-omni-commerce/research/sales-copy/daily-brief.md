@@ -1,55 +1,72 @@
 # COPY LAB — Daily Sales-Copy Brief
-Date: 2026-09-29 (Pacific)
-Status: RESEARCH AND HANDOFF; ALL NEW TESTS UNPROVEN
+Date: 2026-09-30 (Pacific)
+Status: RESEARCH AND VERIFIED REPOSITORY HANDOFF; ALL NEW TESTS UNPROVEN
 Next owner: Axis 450 Outreach, including Sentinel checks and BEACON measurement.
 
 ## Decision
-Preserve the existing control. Test ONE copy variable at a time. Do not promote winners from 200–400 emails per version. The daily ceiling is 450 prospect-facing sends including replies and follow-ups, subject to lower provider capacity. This brief does not prove sending recovery.
+Preserve the existing control and keep **CL-004 as the only active copy hypothesis once sending is legally and operationally eligible**. Do not promote a winner from vendor benchmarks or small Axis samples. The daily ceiling is 450 prospect-facing sends, including first touches, follow-ups and replies, subject to lower provider capacity. This brief does not prove sending recovery.
 
-## Verified external findings and limitations
-- Woodpecker's benchmark, updated August 5, 2026, uses the last 90 days of **2025**, not a live trailing period. Its headline reply median is 1.5% across 56,614 campaigns; this is total replies, not positive replies or bookings. Observational platform data are context, not Axis forecasts. Its sequence data show declining later-touch replies in longer sequences; that does not establish the causal value of adding touches. [1]
-- Gong's January 29, 2026 executive analysis associates short subjects with opens and concise messages with replies, favors relevant priorities over buzzwords, and recommends a concrete value offer. These are vendor observations about executives, not randomized evidence for local business owners. Treat short subjects, relevant openings and value offers as test candidates, not universal rules. [2]
-- Google advises truthful sender/subject information, gradual volume increases, reducing volume when bounces/deferrals occur, and Postmaster spam rates below 0.1%, avoiding 0.3% or higher. It discourages unsolicited messages to people who did not sign up. A 450/day internal ceiling is not a deliverability guarantee or exemption from provider rules. Gmail does not verify third-party open rates. [3]
-- Woodpecker's two-version calculator illustrates the sample-size problem: at a 1.5% reply baseline, detecting a 50% relative increase requires about 4,414 observations per version under its 95%-confidence/80%-power assumptions. Its positive-reply baseline defaults are estimates, not measurements of Axis. [4]
+## Axis evidence observed before this handoff
+- The 2026-09-30 outreach checkpoints report **0 confirmed prospect sends / 450**, zero positive prospect replies, zero qualified conversations and zero confirmed bookings/cancellations. Payments/revenue were not queried. With no current denominator, no Axis copy effect can be estimated.
+- Queue: 15 saved candidates; 12 have public business-email page confirmation, two require source recheck, and one is quarantined for a source mismatch. AZ 9 / WA 6 and sticky STAN 5 / CUSTOMER_SERVICE 5 / BRIDGE 5 remain unchanged.
+- Gmail authentication works, but no valid Axis physical postal address appears in the repository. Every queued draft remains blocked and marked do-not-send. This is a compliance blocker, not a copy problem.
+- One Uber support acknowledgment was processed as an internal operational message, not a lead or prospect reply. No sales response was sent.
+- No experiment was deployed and no winner changed.
 
-## Axis evidence
-Read existing September 20 run report: it records nine sends with sticky arms and zero human replies at that snapshot; bookings and revenue were not independently queried. That record lacks message IDs and is not a validated winning experiment. Repository searches did not surface newer outcome reports in the inspected runs directory. No current conversion baseline has been established. Preserve all historical logs and assignments.
+## Verified findings and limitations
+1. **Deliverability and truthful identity are stronger than copy folklore.** Google requires accurate sender/subject representation, authentication, monitoring and low complaint rates; it advises keeping Postmaster spam rates below 0.10% and avoiding 0.30% or higher. FTC guidance requires accurate headers/subjects, ad identification, opt-out capability and a valid physical postal address; a properly registered P.O. box or private mailbox can qualify. These are operational guardrails, not conversion hypotheses. [1–4]
+2. **A new large vendor dataset is useful context, not causal proof.** Saleshandy says it aggregated 53.1M cold emails and 60,000 sequences from January–June 2026. It reports a 3.7% total reply average, 44.5% of positive replies occurring on follow-ups, and stronger results in smaller segmented sequences and 50–80-word first emails. Campaigns were grouped rather than randomized, industries and list quality differ, and several published positive-reply figures are internally difficult to reconcile. Do not use its percentages as Axis forecasts or proof that length/follow-up caused the result. [5]
+3. **Vendor AI-vs-human results are weak evidence.** A Saleshandy case study reports AI-only, human-only and hybrid outcomes, including 4.1% total replies, 1.4% positive replies and 0.7% meetings for one 5,000-email AI-only campaign, with higher reported hybrid results. The article does not establish randomized assignment or equivalent audiences and is product-linked. Treat “AI research plus final judgment” as a quality-control rationale, not a measured Axis winner. [6]
+4. **Adjacent field evidence does not show a direct tone lift.** A 2026 randomized crossover field experiment across 16,880 ordinary workplace emails found playful/professional AI rewrites changed measured tone but did not directly change opens, replies or response time. This is not cold outreach to local businesses, so it argues against prioritizing a tone-only test, not against all tone effects. [7]
+5. Prior Woodpecker and Gong findings remain contextual: observational reply benchmarks, short subjects, concise bodies, relevant openings and concrete value offers are candidates, not universal rules. No new evidence today upgrades them to library winners. [8–10]
 
-## Controls and test queue
-Preserve CL-001 situational relevance, CL-002 discovery CTA with secondary booking link, and CL-003 concise copy as existing recorded controls—not proven winners. Preserve CL-004 through CL-008 from September 21; their prior small-sample winner thresholds are superseded by the plan below. Defer all but CL-004 until its preregistered evaluation finishes.
+## Controls and hypotheses
+Preserve CL-001 situational relevance, CL-002 one discovery CTA plus secondary booking link, and CL-003 concise copy as recorded controls—not proven winners. CL-004 through CL-008 remain unproven. Defer CL-005 through CL-008 until CL-004 reaches its preregistered endpoint. Do not add a tone-only test.
 
-Common design for each test: randomize by business, stratify by state/niche and sticky agent arm, keep eligibility, pricing and cadence identical. Deduplicate businesses. One primary outcome and one comparison at a time. Freeze actual control text/version before sending. Use a 14-day response window after assignment, 30 days for booking and 60 days for revenue. Do not count autoreplies or opt-outs as positive replies. If delivery is not known, label denominator accepted/sent, never delivered. Report numerator, denominator and 95% interval.
+Common design: randomize by business; stratify by state, niche and sticky arm; freeze the exact control/version before sending; keep eligibility, offer, pricing, sender, cadence and compliance identical; deduplicate businesses. Primary window: 14 days for positive replies, 30 days for bookings, 60 days for revenue. Autoreplies, opt-outs and negative replies are not positive replies. Use delivered denominators only when delivery is verified; otherwise report accepted/sent.
 
-Sample requirement P: calculate before launch from Axis positive-reply baseline, desired absolute lift, two-sided alpha 0.05 and 80% power. Until baseline exists, 200–400 per version is a feasibility pilot only. As planning context, [4] gives about 13,391 per version for 0.5% to 0.75% positive replies; this can take months under the daily cap. Do not split this volume across five simultaneous experiments. A scarce reply dataset can remain inconclusive.
+**Sample requirement P:** calculate from the observed Axis baseline and a preregistered worthwhile absolute lift using two-sided alpha 0.05 and 80% power. Until a baseline exists, any 200–400-per-version run is a feasibility pilot only.  
+**Decision K:** keep only if the endpoint 95% interval excludes zero and reaches the worthwhile effect without material booking/revenue, opt-out, complaint or bounce harm. If the interval rules out the worthwhile effect, retire; otherwise mark inconclusive and retain control. Safety stops override sample completion.
 
-Common decision K: keep as a candidate only at the planned endpoint if the primary difference's 95% interval excludes zero and reaches the preregistered worthwhile effect, with no material booking/revenue or opt-out harm. If the interval rules out the worthwhile effect, retire; otherwise mark inconclusive and retain control. Safety stops do not require completing the sample. No significance claim from daily peeking, no equivalence claim from a nonsignificant result.
+| ID | Control | Variant / hypothesis | Primary metric | Secondary metrics | Sample | Kill / keep |
+|---|---|---|---|---|---|---|
+| CL-004 | Existing AI/automation-led opening | One sourced operational observation → possible relevant outcome; never assert an unobserved problem | Positive replies / eligible first-touch recipients | Bookings, qualified conversations, revenue/contact, opt-outs | P | K; kill immediately for fabricated or unsupported relevance |
+| CL-005 | Existing discovery question | Concrete offer to share two useful observations; booking link secondary in both | Positive replies / recipients | Bookings, qualified conversations, revenue/contact, opt-outs | P after CL-004 | K; reject if added replies do not improve downstream quality |
+| CL-006 | Actual existing body length | 50–80 words, proposition and CTA fixed | Positive replies / recipients | Bookings, revenue/contact, opt-outs | P after CL-004 | K; skip if control is already in range |
+| CL-007 | Actual existing subject | Truthful 1–4-word priority subject; body fixed | Positive replies / recipients | Bookings, revenue/contact; opens diagnostic only | P after CL-004 | K; never select on opens alone |
+| CL-008 | No follow-up | One useful follow-up after five business days to eligible randomized nonresponders | Incremental positive replies / randomized nonresponders | Incremental bookings, revenue/prospect, opt-outs, complaints, extra sends | P using nonresponder baseline | K; stop on reply/opt-out/bounce; vendor sequence shares do not prove causality |
 
-| ID | Control → variant (hypothesis) | Primary | Secondary | Sample and decision |
-|---|---|---|---|---|
-| CL-004 | Existing AI/automation-led opening → one sourced operational observation and relevant possible outcome; never assert an unobserved problem | Positive replies / eligible first-touch recipients | Bookings / delivered when known; qualified conversations; revenue/contact; opt-outs | P; K; worthwhile effect fixed before launch |
-| CL-005 | Existing discovery question → concrete offer to share two useful observations; booking link secondary in both | Positive replies / recipients | Bookings, qualified conversations, revenue/contact, opt-outs | P; K; reject if extra replies do not improve downstream quality |
-| CL-006 | Actual existing body length → 50–100 words, holding proposition and CTA fixed | Positive replies / recipients | Bookings, revenue/contact, opt-outs | P; K; if control already matches, skip redundant test |
-| CL-007 | Actual existing subject → truthful 1–4-word priority subject, body unchanged | Positive replies / recipients | Bookings, revenue/contact; opens diagnostic only | P; K; never select on opens alone |
-| CL-008 | No follow-up → one useful follow-up after five business days to eligible nonresponders | Incremental positive replies / randomized nonresponders | Incremental bookings, revenue/prospect, opt-outs, extra sends | P using nonresponder baseline; K; five-day spacing is an operational hypothesis, not proven optimum |
+## Executable handoff
+1. **Compliance gate:** do not send until a verified current Axis street address, registered P.O. box or registered private mailbox is present in sender configuration and the footer. Never infer Bradley's home address.
+2. Read and record this file's date and SHA. Reconcile paginated Gmail Sent and durable history; recheck inbox, suppressions and failure quarantines.
+3. When eligible, use the existing control outside CL-004. Day zero: Bradley identity, one sourced relevance point, possible outcome without promises, one primary question, secondary 15-minute booking link and exact opt-out.
+4. CL-004 only: randomize qualified first-touch businesses within state × niche × sticky arm. Persist assignment, exact copy version, Gmail ID and accepted/delivery state.
+5. Follow up only when due under an approved sequence or CL-008 assignment; add a new useful observation rather than repeating pressure. Stop on any human reply, opt-out, bounce or complaint.
+6. Objections: opt-out/not interested → suppress with no rebuttal; timing → acknowledge and obtain permission for a later date; price → answer only with verified scope/pricing and one clarification; existing provider → acknowledge without inventing deficiencies.
+7. Process sequential batches of 15–25, rechecking live count, suppression and provider responses between batches. Never exceed 450. Do not force volume through weak leads or provider limits.
+8. BEACON reports state × niche × arm × hypothesis with numerators, denominators and intervals. Positive replies, bookings and revenue outrank opens. Unknown delivery remains unknown.
 
-## Executable sequence and objection handling
-Day zero: sender Bradley; one sourced relevance point, a possible useful outcome without quantified promises, one primary CTA, the existing secondary 15-minute booking URL and exact opt-out line. Use existing control outside the single active test.
-Follow-up: only if due under an approved sequence or CL-008 assignment; add a concrete new observation, not repeated pressure. Stop follow-ups on any human reply and classify it.
-Objections: opt-out/not interested → suppress, no rebuttal. Timing objection → acknowledge and obtain permission for a later date. Price question → answer only with verified scope/pricing, then one clarification. Existing provider → acknowledge; do not invent deficiencies. These are proposed operational practices, not measured conversion improvements.
+## Copy library decision
+**No new finding is strong enough to add as an approved winner.** Retain only the existing unproven candidate pattern: sourced observation → possible useful outcome → concrete value offer → secondary booking path. Do not add unsupported case studies, quantified savings, fake familiarity, generic local-color personalization or autonomous AI copy claims.
 
-## Copy library
-Add only as UNPROVEN CANDIDATE: sourced observation → possible useful outcome → concrete value offer → secondary booking path. Never fabricate case studies, savings, prior familiarity or AI capabilities. Existing requirement remains:
+Required secondary booking path:
 https://cal.com/bradley-dennis-ddfihy/15min?overlayCalendar=true
+
+Required opt-out:
 Reply STOP to unsubscribe.
-Do not modify copy/winners.json without Axis evidence.
 
-## Sender handoff and guardrails
-Read this file's date/version before copy generation. Reconcile Sent and durable history; immediately suppress STOP businesses across sender identities. Quarantine DNS failures, full inboxes and rejections; do not retry while Gmail retries. Preserve January exclusion. Process sequential batches of 15–25 with count/suppression rechecks. Provider limits, missing verified sender details or unknown suppression state block sending, not independent research. Persist confirmed Gmail IDs and copy/test version. Carry forward all historical leads, assignments and records. Report zero, unknown and not queried distinctly.
-No consequential new AI/TikTok offer change was validated in this review. Today is Tuesday; no Monday supplement is due.
+Do not modify `copy/winners.json` without measured Axis evidence.
 
-## Sources (checked September 29, 2026)
-[1] https://woodpecker.co/cold-email-benchmarks/ — updated 2026-08-05; period explicitly last 90 days of 2025.
-[2] https://dev.www.gong.io/blog/do-execs-really-reply-to-cold-email-here-s-what-the-data-says — published 2026-01-29; search-indexed source reviewed.
-[3] https://support.google.com/mail/answer/81126 — official sender guidance, retrieved today.
-[4] https://woodpecker.co/cold-email-ab-test-calculator/ — planning table reviewed today; illustrative assumptions.
-Prior controls/history: September 21 version of this file remains in Git history; axis-omni-commerce/outreach/runs/2026-09-20-1214.md.
+## Sources checked September 30, 2026
+[1] Google, Email sender guidelines: https://support.google.com/mail/answer/81126  
+[2] Google, Email sender guidelines FAQ: https://support.google.com/mail/answer/14229414  
+[3] FTC, CAN-SPAM compliance guide: https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business  
+[4] FTC, 2008 rule provision on registered P.O. boxes/private mailboxes: https://www.ftc.gov/news-events/news/press-releases/2008/05/ftc-approves-new-rule-provision-under-can-spam-act  
+[5] Saleshandy, 53.1M-email 2026 benchmark: https://www.saleshandy.com/blog/cold-email-statistics/  
+[6] Saleshandy, AI vs human outreach case study: https://www.saleshandy.com/blog/ai-vs-human-cold-emails/  
+[7] Ben-Zion & Lazebnik, *Playful AI in Professional Email* (2026 preprint): https://arxiv.org/abs/2607.11749  
+[8] Woodpecker cold-email benchmarks: https://woodpecker.co/cold-email-benchmarks/  
+[9] Woodpecker A/B planning calculator: https://woodpecker.co/cold-email-ab-test-calculator/  
+[10] Gong, executive cold-email analysis (2026): https://dev.www.gong.io/blog/do-execs-really-reply-to-cold-email-here-s-what-the-data-says
+
+Historical controls and prior evidence remain in Git history. Latest outcome records read: `axis-omni-commerce/outreach/runs/2026-09-30-0030-reconciliation.md`, `2026-09-30-0734-inbox.md`, and `2026-09-29-2330-verification.md`.
