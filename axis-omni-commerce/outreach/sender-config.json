@@ -1,0 +1,16 @@
+{
+  "sender_name": "Bradley",
+  "sender_email": "seo4axis@gmail.com",
+  "gmail_link_id": "link_6a7292a76dbc8191803a0b42c37c2574",
+  "postal_address": {
+    "status": "OWNER_ATTESTED_AUTHORIZED",
+    "authorized_date": "2026-10-03",
+    "storage": "private_axis_gmail_unsent_draft",
+    "draft_id": "r-4979326054730445946",
+    "message_id": "1a1028162cce6793",
+    "independent_postal_validation": false,
+    "instruction": "Read private message body and insert owner-supplied postal address verbatim into outgoing footer. Never send/delete configuration draft or publish address in this public repository. If private record is unavailable, stop sending."
+  },
+  "daily_cap": 450,
+  "preflight_required": true
+}
