@@ -1,5 +1,5 @@
 # COPY LAB — Daily Sales-Copy Brief
-Date: 2026-10-02 (Pacific)
+Date: 2026-10-03 (Pacific)
 Status: RESEARCH AND VERIFIED REPOSITORY HANDOFF; ALL NEW TESTS UNPROVEN
 Next owner: Axis 450 Outreach, including Sentinel checks and BEACON measurement.
 
@@ -7,24 +7,24 @@ Next owner: Axis 450 Outreach, including Sentinel checks and BEACON measurement.
 Preserve the current control. **CL-004 remains the only planned copy test once outreach is legally and operationally eligible.** No campaign winner changes today. The daily ceiling remains 450 prospect-facing sends, including first touches, follow-ups and replies, subject to lower provider capacity.
 
 ## Axis evidence observed
-- The latest persisted prospect-outreach checkpoint remains **0 confirmed prospect sends / 450**, zero positive prospect replies, zero qualified conversations and zero confirmed bookings/cancellations. No current Axis copy denominator exists.
-- Four 2026-10-01 Sent messages were internal platform-safety reports, not prospect outreach. Later support replies were internal handoffs and do not count as prospect replies.
-- The saved queue remains 15 candidates: 12 verified public business-email sources, two requiring source recheck and one quarantined; AZ 9 / WA 6 and sticky STAN 5 / CUSTOMER_SERVICE 5 / BRIDGE 5.
-- Gmail connectivity is verified, but no verified Axis physical postal address is persisted. New commercial outreach remains blocked. This is a compliance condition, not a copy-performance diagnosis.
+- The latest persisted outreach checkpoint, `axis-omni-commerce/outreach/runs/2026-10-02-0833-handoff.md`, reports **0 confirmed prospect sends / 450**, zero positive prospect replies, zero qualified conversations and zero confirmed bookings/cancellations. Exact paginated Sent count was zero for the October 2 Pacific day.
+- The saved queue remained 15 candidates: 12 verified public business-email sources, two requiring source recheck and one quarantined; AZ 9 / WA 6 and sticky STAN 5 / CUSTOMER_SERVICE 5 / BRIDGE 5.
+- The active hypothesis was CL-004, but exposure was zero. There is therefore no Axis copy denominator and no basis for declaring a winner.
+- Gmail connectivity was verified, but no verified Axis physical postal address was persisted. New commercial outreach remained blocked. This is a compliance condition, not a copy-performance diagnosis.
 - No experiment was deployed and no winner changed.
 
 ## Evidence review
 ### Verified or strong operational findings
-1. **Compliance and deliverability outrank copy changes.** Google requires accurate identity, authentication, low complaint rates and monitoring. Its current guidance says to keep Postmaster spam rates below 0.10% and avoid 0.30% or higher. FTC guidance requires accurate headers and subject lines, a working opt-out and a valid physical postal address. These are guardrails, not conversion hypotheses. [1–4]
-2. **Open rate remains diagnostic only.** Privacy and proxy loading can distort it. Axis selects on positive replies, booked meetings per delivered email and downstream revenue.
-3. **Generic AI personalization has no demonstrated conversion advantage.** A 2026 benchmark built from 6,279 sales success stories found a personalization plateau and no statistically separating model on one Fortune 100 cohort. Its 12-representative field deployment measured immediate usefulness, not recipient replies, bookings or revenue. Treat it as evidence for human verification and sourced relevance—not as proof that personalization raises conversion. [5]
-4. **Valid tool calls are not verified workflow completion.** EmailBench reports 99.7% tool-call completion for its best configuration but only 33.5% scenario completion. It uses synthetic enterprise-email tasks rather than sales outreach, so it changes no copy rule; it reinforces the existing requirement to verify Gmail IDs, persistence, suppression and outcomes independently. [6]
+1. **Compliance and deliverability outrank copy changes.** Google requires authentication, accurate sender identity, valid DNS, TLS and complaint control; for bulk senders it also requires DMARC alignment and one-click unsubscribe. FTC guidance applies to B2B commercial email and requires accurate headers and subject lines, ad identification, a valid physical postal address, a clear opt-out and honoring opt-outs within 10 business days. These are operating guardrails, not conversion hypotheses. [1–3]
+2. **Open rate remains diagnostic only.** Proxy loading and privacy protection can distort it. Axis selects on positive replies, booked meetings per delivered email and downstream revenue.
+3. **Tone-only rewriting has no demonstrated cold-outreach advantage.** A randomized crossover field experiment covering 16,880 workplace emails found playful versus professional GPT-5 rewriting changed tone but did not directly improve opens, replies or response time. The setting was internal workplace communication, not cold local-business outreach, so this deprioritizes tone-only testing rather than disproving it. [4]
+4. **Large vendor datasets can suggest tests but cannot establish causal copy rules.** Gong describes analyses of 25 million cold emails and more than one million executive sales cycles; Lavender reports 231,818 cold emails. Neither public summary establishes randomized recipient-level causality for Axis outcomes. [5–6]
 
 ### Useful but weak claims
-- Vendor datasets still associate concise bodies, relevant openings, small segmented lists and follow-ups with higher replies. These are observational and confounded by list quality, offer, industry and infrastructure. They generate hypotheses, not Axis forecasts. [7–10]
-- A newly surfaced 2M+ cold-email report states a 2.09% overall reply rate, 14.1% positive share of replies and a 0.64% interested-reply rate. Those published figures are arithmetically inconsistent: 2.09% × 14.1% is approximately 0.29%, not 0.64%. Do not add its headline benchmark to the Axis copy library without raw-method clarification. [7]
-- The 2026 randomized workplace-email study still found no direct open, reply or response-time lift from playful versus professional AI rewriting. It was not cold local-business outreach, so tone-only rewriting remains deprioritized rather than disproven. [11]
-- Claims of large lifts from first-name tokens, personalized subjects or hyper-personalized AI copy remain weak without transparent randomized recipient-level evidence and downstream metrics.
+- Vendor studies commonly associate concise copy, specific relevance, one low-friction CTA, smaller segmented campaigns and useful follow-ups with higher replies. List quality, offer, sender reputation, industry and infrastructure are uncontrolled or incompletely reported. Treat these as hypothesis generators only.
+- Saleshandy's 2026 page says its report covers 53.1 million cold emails and 60,000 sequences, but the same page claims 67.4 million connected email accounts. It also presents a 3.7% average reply rate alongside a 3–5% average positive-reply range. Those public figures are internally difficult to reconcile, so Axis must not adopt its headline lifts or benchmarks as library facts. [7]
+- Claims that a particular subject length, first-name token, “quick question,” personalization depth or follow-up count reliably produces a fixed lift remain weak without transparent randomized allocation, verified delivery denominators and downstream booking/revenue outcomes.
+- No consequential AI-automation, booking-site, local-acquisition or TikTok development found today changes the Axis offer or approved copy.
 
 ## Controls and hypotheses
 Preserve CL-001 sourced situational relevance, CL-002 one discovery CTA plus secondary booking link, and CL-003 concise copy as controls—not proven winners. CL-004 through CL-008 remain unproven. Defer CL-005 through CL-008 until CL-004 reaches its preregistered endpoint.
@@ -32,6 +32,7 @@ Preserve CL-001 sourced situational relevance, CL-002 one discovery CTA plus sec
 Common design: randomize by business; stratify by state, niche and sticky arm; freeze exact versions; keep eligibility, offer, pricing, sender, cadence and compliance identical; deduplicate businesses. Primary windows: 14 days positive replies, 30 days bookings, 60 days revenue. Autoreplies, opt-outs and negative replies are not positive replies. Use delivered denominators only when delivery is verified; otherwise report accepted/sent.
 
 **Sample P:** calculate from the observed Axis baseline and a preregistered worthwhile absolute lift using two-sided alpha 0.05 and 80% power. Until a baseline exists, 200–400 per version is only a feasibility pilot.
+
 **Rule K:** keep only when the endpoint 95% interval excludes zero and reaches the worthwhile effect without material harm to bookings/revenue, opt-outs, complaints or bounces. Retire when the interval rules out the worthwhile effect; otherwise mark inconclusive. Safety stops override sample completion.
 
 | ID | Control | Variant / hypothesis | Primary metric | Secondary metric | Sample requirement | Kill / keep rule |
@@ -63,17 +64,13 @@ Reply STOP to unsubscribe.
 
 Do not modify `copy/winners.json` without measured Axis evidence.
 
-## Sources checked October 2, 2026
+## Sources checked October 3, 2026
 [1] Google, Email sender guidelines: https://support.google.com/mail/answer/81126
 [2] Google, Email sender guidelines FAQ: https://support.google.com/mail/answer/14229414
 [3] FTC, CAN-SPAM compliance guide: https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business
-[4] FTC, registered P.O. boxes/private mailboxes: https://www.ftc.gov/news-events/news/press-releases/2008/05/ftc-approves-new-rule-provision-under-can-spam-act
-[5] Srivastava et al., Benchmarking the Personalization Capabilities of Large Language Models (2026): https://arxiv.org/abs/2607.20471
-[6] Singh et al., EmailBench (2026): https://arxiv.org/abs/2609.31906
-[7] Sales.co, 2M+ cold-email report: https://sales.co/research/cold-email-statistics
-[8] Saleshandy, 53.1M-email 2026 benchmark: https://www.saleshandy.com/blog/cold-email-statistics/
-[9] Instantly, 2026 reply-rate benchmark: https://instantly.ai/blog/cold-email-reply-rate-benchmarks/
-[10] Gong, executive cold-email analysis: https://dev.www.gong.io/blog/do-execs-really-reply-to-cold-email-here-s-what-the-data-says
-[11] Ben-Zion & Lazebnik, Playful AI in Professional Email (2026): https://arxiv.org/abs/2607.11749
+[4] Ben-Zion & Lazebnik, Playful AI in Professional Email (2026): https://arxiv.org/abs/2607.11749
+[5] Gong, cold-email analysis: https://www.gong.io/blog/does-cold-email-even-work-any-more-heres-what-the-data-says
+[6] Lavender, Cold Email Benchmark Report: https://lavender.ai/blog/the-cold-email-benchmark-report
+[7] Saleshandy, 2026 benchmark page: https://www.saleshandy.com/blog/cold-email-statistics/
 
-Historical controls and prior evidence remain in Git history. Latest persisted outcomes read: `2026-10-01-0832-handoff.md`, `2026-10-01-1129-internal-handoff.md`, `2026-10-01-1232-uber-routing-correction.md`, and `2026-10-01-1526-doordash-handoff.md`.
+Historical controls and prior evidence remain in Git history. Latest persisted Axis outcome read: `axis-omni-commerce/outreach/runs/2026-10-02-0833-handoff.md`.
