@@ -74,3 +74,6 @@ Do not modify `copy/winners.json` without measured Axis evidence.
 [7] Saleshandy, 2026 benchmark page: https://www.saleshandy.com/blog/cold-email-statistics/
 
 Historical controls and prior evidence remain in Git history. Latest persisted Axis outcome read: `axis-omni-commerce/outreach/runs/2026-10-02-0833-handoff.md`.
+
+## Owner authorization update — 2026-10-03 09:03 Pacific
+Bradley has now supplied and explicitly authorized the Axis mailing address for outreach footers. It is stored privately in Axis Gmail and referenced by `axis-omni-commerce/outreach/sender-config.json`. This supersedes the earlier missing-address blocker above; historical observations remain unchanged. Verification is owner attestation, not independent postal validation. Read the private record and insert the address before sending; never send unresolved footer placeholders. All normal recipient, suppression, source, dedupe, count and provider checks remain required. No prospect send or experiment deployment is claimed by this configuration update.
