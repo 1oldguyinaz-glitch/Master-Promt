@@ -2,3 +2,4 @@ suppression_id,scope,value,business_name,reason,status,added_at,source,notes
 sup-20261007-primetouch-email,email,admin@primetouchauto.com,PrimeTouch Auto,HARD_BOUNCE,ACTIVE_NO_RETRY,2026-10-07,"Gmail delivery failure and owner directive","Do not retry while suppressed; existing Gmail draft is unsent."
 sup-20261003-infoton-domain,domain,infoton.ai,Infoton,OWNER_EXCLUSION,ACTIVE_NO_AUTO_CONTACT,2026-10-03,"Owner directive","Infoton watch inactive; no automatic prospect email."
 sup-20261003-january-email,email,january@infoton.ai,Infoton,OWNER_EXCLUSION,ACTIVE_NO_AUTO_CONTACT,2026-10-03,"Owner directive","Never automatically email January; owner approval required."
+sup-20261008-derouin-email,email,joe@derouinconcrete.com,Derouin Concrete,HARD_BOUNCE,ACTIVE_NO_RETRY,2026-10-08,"Gmail delivery failure 1a11d2052ccfa736","Remote server 550: No mailbox by that name; message 1a11d203be8cf702. Do not retry."
