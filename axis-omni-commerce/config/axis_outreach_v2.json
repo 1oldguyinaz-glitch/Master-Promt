@@ -1,6 +1,6 @@
 {
-  "version": "2.1",
-  "effective_date": "2026-10-07",
+  "version": "2.2",
+  "effective_date": "2026-10-08",
   "sender": {
     "display_name": "Bradley",
     "signature_lines": [
@@ -29,7 +29,10 @@
       "franchise with centrally controlled site",
       "strong modern funnel without a clear Axis opportunity"
     ],
-    "note": "Qualified leads, attempted sends, delivered emails, replies, bookings, and revenue are separate metrics. Existing daily ceilings are ceilings, not send instructions. Begin with five verified recipients after all preflight gates pass."
+    "note": "Qualified leads, attempted sends, delivered emails, replies, bookings, and revenue are separate metrics. The former five-recipient launch test reached five confirmed Gmail SENT records (four on 2026-10-07; one on 2026-10-08) and no longer limits future eligible outreach. Do not infer delivery from SENT.",
+    "hourly_prospect_send_cap": 50,
+    "daily_prospect_send_cap": 450,
+    "sending_schedule": "Every hour 07:00 through 17:00 America/Los_Angeles; the 50/run and 450/day values are ceilings subject to verified recipients, compliance, dedupe, sender permissions, and successful Gmail/Persistence checks"
   },
   "niches": [
     {
@@ -142,10 +145,10 @@
     "primary_message": "Hi [First Name], I'm Bradley, an AI architect. I help businesses design practical AI systems to save time and improve operations. If you could use AI to improve one part of your business, what would it be?",
     "subject": "Quick question about AI and your business",
     "secondary_service": "Website audits and conversion improvements, only when relevant to a prospect's stated needs",
-    "first_test_max_verified_recipients": 5,
     "send_policy": "No sends without owner authorization and verified compliant sender footer; verify recipient, suppression, Gmail access, deliverability, and message ID.",
     "response_routing": "Classify expressed business needs; offer existing 15-minute booking link for qualified interested replies.",
     "daily_lead_workflow": "Source and deduplicate verified active businesses with publicly listed business emails and evidence URL; website audit is not a required qualification step.",
-    "measurement": "Track sourced, eligible, attempted, confirmed sent, delivered if known, positive replies, qualified AI needs, bookings, opt-outs, bounces, and collected revenue separately."
+    "measurement": "Track sourced, eligible, attempted, confirmed sent, delivered if known, positive replies, qualified AI needs, bookings, opt-outs, bounces, and collected revenue separately.",
+    "first_test_status": "Launch-volume test completed 2026-10-08 after five confirmed SENT records; no further five-recipient cap. This does not establish delivery, positive replies, or a winning variant."
   }
 }
