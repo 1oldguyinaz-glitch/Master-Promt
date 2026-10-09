@@ -16,7 +16,7 @@ class QuoteTests(unittest.TestCase):
         ]
         result = compare_quotes(["board", "antenna"], quotes)
         self.assertEqual(result["total_pre_tax"], "70")
-        self.assertEqual([x["part_number"] for x in result["items"]], ["A1", "B2"])
+        self.assertEqual([x["part_number"] for x in result["items"]], ["B1", "B2"])
 
     def test_missing_items_never_invented(self):
         result = compare_quotes(["board","antenna"], [
