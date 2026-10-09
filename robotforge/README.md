@@ -27,24 +27,24 @@ A guardian selects a distance from a **fixed saved location**, such as home or s
 
 ## Plugin tools
 
-- \`design_wearable\`: returns a reference engineering specification and explicit missing validation steps.
-- \`simulate_geofence\`: processes *synthetic* relative distance/accuracy updates with a conservative uncertainty band, rejecting stale fixes.
-- \`compare_quotes\`: optimizes quoted part subtotal + combined supplier shipping, once per supplier, and refuses unpriced freight. All quotes must come from external verified supplier data; **no integrated live catalog yet**.
+- `design_wearable`: returns a reference engineering specification and explicit missing validation steps.
+- `simulate_geofence`: processes *synthetic* relative distance/accuracy updates with a conservative uncertainty band, rejecting stale fixes.
+- `compare_quotes`: optimizes quoted part subtotal + combined supplier shipping, once per supplier, and refuses unpriced freight. All quotes must come from external verified supplier data; **no integrated live catalog yet**.
 
 ## Quickstart
 
 Python 3.10+ required.
 
-\`\`\`bash
+```bash
 python -m pip install -r robotforge/requirements.txt
 python robotforge/server.py
-\`\`\`
+```
 
-Then connect the MCP endpoint at \`http://localhost:8000/mcp\` from a supported MCP client (expose over HTTPS, add authentication, and disable public location processing before deployment). For offline logic checks:
+Then connect the MCP endpoint at `http://localhost:8000/mcp` from a supported MCP client (expose over HTTPS, add authentication, and disable public location processing before deployment). For offline logic checks:
 
-\`\`\`bash
+```bash
 python -m unittest discover -s robotforge -p 'test_*.py' -v
-\`\`\`
+```
 
 ChatGPT custom plugins use MCP: https://developers.openai.com/plugins/build/mcp-server
 
